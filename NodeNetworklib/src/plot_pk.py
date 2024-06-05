@@ -24,6 +24,6 @@ def main():
 
     try:
         red = Red(file_path)
-        red.plot_pk
+        red.plot_pk()
     except Exception as e:
         print(f"Error, archivo no encontrado: ")
