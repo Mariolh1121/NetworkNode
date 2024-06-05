@@ -1,33 +1,14 @@
-# Nombre del Programa/Proyecto
-
+# NodeNetworklib
 
 ## Uso
-
-
-```
-
-```
-
-
-## Salida
-
-
-## Control de errores
-
-
-
-## Pruebas
-
-```
-```
-
-## Datos
+Este proyecto proporciona herramientas para:
+- Cargar datos de una red desde un archivo.
+- Calcular el grado de los nodos.
+- Calcular el coeficiente de clustering de los nodos.
+- Graficar el coeficiente de clustering promedio en función del grado de los nodos.
+- Graficar la distribución de grados de la red.
 
 El script está diseñado para operar en archivos de texto plano, con un número por línea. No hay restricciones en el número de líneas en el archivo.
-
-## Metadatos y documentación
-
-Este README ofrece información de uso básico. Para obtener información más detallada sobre el diseño y la implementación del script, consulte [Enlace a la documentación].
 
 ## Código fuente
 
@@ -44,6 +25,4 @@ Si utiliza este script en su trabajo, por favor cite: [mariolh@lcg.unam.mx].
 ## Contáctenos
 
 Si tiene problemas o preguntas, por favor abra un problema en este repositorio o póngase en contacto con nosotros en: [mariolh@lcg.unam.mx].
-
-Si tiene problemas o preguntas, por favor abra un problema en este repositorio o póngase en contacto con nosotros en: [información de contacto].
 
