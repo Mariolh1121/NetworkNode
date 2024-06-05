@@ -12,9 +12,16 @@ Argumentos:
     <path_del_archivo_de_interacciones> : Ruta al archivo de texto que contenga la lista de interacciones.
 """
 
-import argparse
-from NodeNetworklib.operations.Network import Red
 
+import argparse
+import sys
+import os
+
+# Añadir la ruta a sys.path
+network_lib_path = r'C:\Users\mario\OneDrive\Escritorio\Mario\CienciasGenomicas\Primero\SegundoSemestre\Python\NetworkNode'
+sys.path.append(network_lib_path)
+
+from NodeNetworklib.operations import Red
 def main():
     parser = argparse.ArgumentParser(description="Plotea la gráfica de P(k) de una red de interacciones.")
     parser.add_argument("file", type=str, help="Archivo de lista de interacciones de genes.")
@@ -24,6 +31,9 @@ def main():
 
     try:
         red = Red(file_path)
-        red.plot_pk
+        red.plot_pk()
     except Exception as e:
         print(f"Error, archivo no encontrado: ")
+
+if __name__ == "__main__":
+    main()
