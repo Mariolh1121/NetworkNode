@@ -11,6 +11,10 @@ Argumentos:
 """
 
 import argparse
+import sys
+network_lib_path = r'C:\Users\mario\OneDrive\Escritorio\Mario\CienciasGenomicas\Primero\SegundoSemestre\Python\NetworkNode'
+sys.path.append(network_lib_path)
+
 from NodeNetworklib.operations.Network import Red
 
 def main():

@@ -10,8 +10,12 @@ Argumentos:
 """
 
 import argparse
-from NodeNetworklib.operations.Network import Red
+import sys
 
+network_lib_path = r'C:\Users\mario\OneDrive\Escritorio\Mario\CienciasGenomicas\Primero\SegundoSemestre\Python\NetworkNode'
+sys.path.append(network_lib_path)
+
+from NodeNetworklib.operations import Red
 def main():
     parser = argparse.ArgumentParser(description="Plotea la gráfica de P(k) de una red de interacciones.")
     parser.add_argument("file", type=str, help="Archivo de lista de interacciones de genes.")
@@ -23,6 +27,13 @@ def main():
 
     try:
         red = Red(file_path)
-        print(red.k(nodo))
+        k = red.k(nodo)
+        print("Red creada correctamente.")
+        print(f"Nodo: {nodo}")
+        k = red.k(nodo)
+        if k is not None:
+            print(k)
+        else:
+            print(f"El nodo '{nodo}' no existe en la red.")
     except Exception as e:
         print(f"Error, archivo no encontrado: ")
