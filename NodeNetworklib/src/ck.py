@@ -28,6 +28,9 @@ def main():
 
     try:
         red = Red(file_path)
-        print(red.ck(nodo))
+        print(f"El coeficiente de clustering del nodo ingresado es {red.ck(nodo)}")
     except Exception as e:
         print(f"Error, archivo no encontrado: ")
+
+if __name__ == "__main__":
+    main()

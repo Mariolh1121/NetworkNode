@@ -32,8 +32,11 @@ def main():
         print(f"Nodo: {nodo}")
         k = red.k(nodo)
         if k is not None:
-            print(k)
+            print(f"La conectividad del nodo ingre es {k}")
         else:
             print(f"El nodo '{nodo}' no existe en la red.")
     except Exception as e:
         print(f"Error, archivo no encontrado: ")
+
+if __name__ == "__main__":
+    main()
