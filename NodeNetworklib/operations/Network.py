@@ -1,13 +1,41 @@
-import os
 import matplotlib.pyplot as plt
 import numpy as np
 
 class Red:
+    """
+    Clase que representa una red de interacciones entre nodos.
+
+    Esta clase permite cargar un archivo de interacciones, calcular diversas métricas de la red
+    y realizar gráficos para visualizar la distribución de las conectividades.
+
+    Atributos:
+    - archivo (str): Ruta al archivo de interacciones.
+    - red (dict): Diccionario que almacena las interacciones de la red, donde las claves son los nodos
+                  y los valores son listas de tuplas que representan las conexiones con otros nodos.
+
+    Métodos:
+    - __init__(archivo): Constructor de la clase, recibe la ruta al archivo de interacciones y carga los datos.
+    - cargar_archivo(): Método privado que carga las interacciones desde el archivo especificado.
+    - k(nodo): Calcula la conectividad del nodo especificado.
+    - ck(nodo): Calcula el coeficiente de clustering del nodo especificado.
+    - plot_ck(): Grafica el coeficiente de clustering en función de la conectividad de los nodos.
+    - plot_pk(): Grafica la distribución de probabilidad de conectividad de los nodos.
+    """
+
     def __init__(self, archivo):
+        """
+        Inicializa una instancia de la clase Red.
+
+        Parámetros:
+        - archivo (str): Ruta al archivo de interacciones.
+        """
         self.archivo = archivo
         self.cargar_archivo()
 
     def cargar_archivo(self):
+        """
+        Carga las interacciones desde el archivo especificado.
+        """
         self.red = {}
         with open(self.archivo, 'r') as regulacion:
             lineas = regulacion.readlines()[1:]
@@ -26,9 +54,27 @@ class Red:
                         self.red[regulado].append((regulador, efecto))
 
     def k(self, nodo):
+        """
+        Calcula la conectividad del nodo especificado.
+
+        Parámetros:
+        - nodo (str): Nodo del que se desea calcular la conectividad.
+
+        Retorna:
+        - int: Conectividad del nodo.
+        """
         return len(self.red.get(nodo, []))
 
     def ck(self, nodo):
+        """
+        Calcula el coeficiente de clustering del nodo especificado.
+
+        Parámetros:
+        - nodo (str): Nodo del que se desea calcular el coeficiente de clustering.
+
+        Retorna:
+        - float: Coeficiente de clustering del nodo.
+        """
         vecinos = self.red.get(nodo, [])
         nv = 0
         for vecino, _ in vecinos:
@@ -41,6 +87,9 @@ class Red:
         return coef_clustering
 
     def plot_ck(self):
+        """
+        Grafica el coeficiente de clustering en función de la conectividad de los nodos.
+        """
         nodos = list(self.red.keys())
         grados = [self.k(nodo) for nodo in nodos if self.k(nodo) > 2]
         grados_unicos = sorted(set(grados))
@@ -62,6 +111,9 @@ class Red:
         plt.show()
 
     def plot_pk(self):
+        """
+        Grafica la distribución de probabilidad de conectividad de los nodos.
+        """
         nodos = list(self.red.keys())
         grados = [self.k(nodo) for nodo in nodos]
         frecuencias = {k: grados.count(k) for k in set(grados)}
@@ -77,9 +129,4 @@ class Red:
         axs[1].set_title('P(k) - Log-log')
         axs[1].set_xlabel('k')
         axs[1].set_ylabel('Frecuencia (log)')
-        axs[1].set_xscale('log')
-        axs[1].set_yscale('log')
-        axs[1].grid(True)
-        plt.tight_layout()
-        plt.show()
-
+        axs[1].set_xscale
