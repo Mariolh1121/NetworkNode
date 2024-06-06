@@ -129,4 +129,8 @@ class Red:
         axs[1].set_title('P(k) - Log-log')
         axs[1].set_xlabel('k')
         axs[1].set_ylabel('Frecuencia (log)')
-        axs[1].set_xscale
+        axs[1].set_xscale('log')
+        axs[1].set_yscale('log')
+        axs[1].grid(True)
+        plt.tight_layout()
+        plt.show()

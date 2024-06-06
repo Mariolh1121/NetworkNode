@@ -28,7 +28,11 @@ def main():
 
     try:
         red = Red(file_path)
-        print(f"El coeficiente de clustering del nodo ingresado es {red.ck(nodo)}")
+        ck = red.ck()
+        if ck is not None:
+            print(f"La conectividad del nodo ingre es {ck}")
+        else:
+            print(f"El nodo '{nodo}' no existe en la red.")
     except Exception as e:
         print(f"Error, archivo no encontrado: ")
 
